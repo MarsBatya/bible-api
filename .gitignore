@@ -1,0 +1,8 @@
+
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3-wal
+*.sqlite3-shm
+
+*.service
+*.service.local
