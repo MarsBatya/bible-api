@@ -191,6 +191,23 @@ func loggingMiddleware(next http.HandlerFunc) http.HandlerFunc {
 	}
 }
 
+// CORS middleware
+func corsMiddleware(next http.HandlerFunc) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "GET, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+		
+		// Handle preflight requests
+		if r.Method == "OPTIONS" {
+			w.WriteHeader(http.StatusOK)
+			return
+		}
+		
+		next(w, r)
+	}
+}
+
 func main() {
 	// Initialize databases
 	log.Println("Initializing databases...")
@@ -207,8 +224,8 @@ func main() {
 	}()
 
 	// Setup routes
-	http.HandleFunc("/get-random-verse/", loggingMiddleware(getRandomVerseHandler))
-	http.HandleFunc("/health", loggingMiddleware(healthHandler))
+	http.HandleFunc("/get-random-verse/", corsMiddleware(loggingMiddleware(getRandomVerseHandler)))
+	http.HandleFunc("/health", corsMiddleware(loggingMiddleware(healthHandler)))
 
 	// Start server
 	port := os.Getenv("PORT")
