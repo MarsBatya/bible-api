@@ -1,6 +1,10 @@
 
 # Bible Verse REST API (Go + SQLite)
 
+[![Go](https://img.shields.io/badge/Go-1.21+-00ADD8.svg?logo=go)](https://go.dev)
+[![SQLite](https://img.shields.io/badge/SQLite-3-003B57.svg?logo=sqlite)](https://www.sqlite.org/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A lightweight, high-performance REST API written in Go that returns a random Bible verse from a SQLite database as JSON.
 
 Designed for:
@@ -41,12 +45,13 @@ GET /get-random-verse/KJV/
 **Response**
 ```json
 {
-  "translation": "KJV",
-  "book_number": 1,
-  "book_title": "Genesis",
-  "chapter": 1,
-  "verse": 1,
-  "text": "And God saw the light, that it was good: and God divided the light from the darkness."
+    "translation":"KJV",
+    "book_number":500,
+    "book_title":"John",
+    "book_title_short":"John",
+    "chapter":8,
+    "verse":36,
+    "text":"If the Son therefore shall make you free, ye shall be free indeed."
 }
 ````
 
