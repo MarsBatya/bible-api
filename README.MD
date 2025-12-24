@@ -5,6 +5,8 @@
 [![SQLite](https://img.shields.io/badge/SQLite-3-003B57.svg?logo=sqlite)](https://www.sqlite.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+<img width="1024" height="1024" alt="Image" src="https://github.com/user-attachments/assets/a23b7b6c-d0fb-41f8-836a-0043afc45382" />
+
 A lightweight, high-performance REST API written in Go that returns a random Bible verse from a SQLite database as JSON.
 
 Designed for:
